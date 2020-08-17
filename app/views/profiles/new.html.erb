@@ -1,0 +1,12 @@
+<h1>Create a new profile for <%= current_user.username %> </h1>
+
+<div class="container">
+  <%= simple_form_for [@user, @profil] do |f|%>
+    <%= f.input :address %>
+    <%= f.input :category %>
+    <%= f.input :description %>
+    <%= f.input :price %>
+    <%= f.input :available, :input_html => { :checked => true } %>
+    <%= f.submit %>
+  <% end %>
+</div>
