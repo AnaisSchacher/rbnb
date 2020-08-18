@@ -11,6 +11,7 @@ require 'faker'
 require 'open-uri'
 
 puts 'Creating 50 fake users...'
+User.destroy_all
 50.times do
   user = User.new(
     username:    Faker::Name.last_name,
