@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
 
   def new
     @user = User.find(params[current_user.id])
-    @profile = Profile.new
+    @profil = Profil.new
   end
 
   def create
