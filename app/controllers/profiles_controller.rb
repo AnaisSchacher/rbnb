@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-
   def new
     @user = User.find(params[current_user.id])
     @profile = Profile.new
@@ -15,7 +14,6 @@ class ProfilesController < ApplicationController
         render :new
       end
   end
-
 
   private
   def profile_params
