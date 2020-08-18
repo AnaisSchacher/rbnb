@@ -1,4 +1,6 @@
-<h1>Toutes les offres disponibles autour de vous (TEST)</h1>
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <h1>Toutes les offres disponibles autour de vous (TEST)</h1>
+</div>
 
 <div class="main-container">
 	<div class="row" style="width: 100%;margin:0px;">
@@ -7,65 +9,16 @@
 			<div class="cards">
 				<div class="card-trip">
 					<% @profiles.each do |profile| %>
-					  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+					  <%= cl_image_tag(profile.user.photo.key, :transformation=>[{height: 400, width: 500, crop: :fill}]) if profile.user.photo.attached? %>
 					  <div class="card-trip-infos">
 					    <div>
 					      <h2><%= profile.user.name %></h2>
 					      <p><%= profile.category %></p>
-					      <p><%= profile.available %></p>
+					      <p><%=  %></p>
 					    </div>
 					    <h2 class="card-trip-pricing">€ <%= profile.price %></h2>
-					    <img src="<%= cl_image_tag profile.user.photo.key if profile.user.photo.attached? %>" />
 					  </div>
 					 <% end %>
-				</div>
-
-				<div class="card-trip">
-				  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-				  <div class="card-trip-infos">
-				    <div>
-				      <h2>Title here</h2>
-				      <p>Short description here!</p>
-				    </div>
-				    <h2 class="card-trip-pricing">£99.99</h2>
-				    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-				  </div>
-				</div>
-
-				<div class="card-trip">
-				  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-				  <div class="card-trip-infos">
-				    <div>
-				      <h2>Title here</h2>
-				      <p>Short description here!</p>
-				    </div>
-				    <h2 class="card-trip-pricing">£99.99</h2>
-				    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-				  </div>
-				</div>
-
-				<div class="card-trip">
-				  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-				  <div class="card-trip-infos">
-				    <div>
-				      <h2>Title here</h2>
-				      <p>Short description here!</p>
-				    </div>
-				    <h2 class="card-trip-pricing">£99.99</h2>
-				    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-				  </div>
-				</div>
-
-				<div class="card-trip">
-				  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-				  <div class="card-trip-infos">
-				    <div>
-				      <h2>Title here</h2>
-				      <p>Short description here!</p>
-				    </div>
-				    <h2 class="card-trip-pricing">£99.99</h2>
-				    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-				  </div>
 				</div>
 			</div>
 			<!-- 	END	TEST -->
