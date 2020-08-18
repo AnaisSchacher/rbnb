@@ -2,15 +2,15 @@ class ProfilesController < ApplicationController
 
   def new
     @user = User.find(params[current_user.id])
-    @profil = Profil.new
+    @profile = Profile.new
   end
 
   def create
     @user = User.find(params[current_user.id])
-    @profil = Profile.new(profil_params)
-    @profil.user = @user_profil
-      if @profil.save
-        redirect_to profil_path(@user_profil)
+    @profile = Profile.new(profile_params)
+    @profile.user = @user_profile
+      if @profile.save
+        redirect_to profile_path(@user_profile)
       else
         render :new
       end
@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
 
 
   private
-  def profil_params
-    params.require(:profil).permit(:user_id, :address, :available, :category, :price, :description)
+  def profile_params
+    params.require(:profile).permit(:user_id, :address, :available, :category, :price, :description)
   end
 end
