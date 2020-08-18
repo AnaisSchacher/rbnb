@@ -16,12 +16,12 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    authorize @profile
-    @user = User.find(params[current_user.id])
     @profile = Profile.find(params[:id])
+    authorize @profile
   end
 
   def update
+    @profile = Profile.find(params[:id])
     authorize @profile
     if @profile.update(profile_params)
       redirect_to profile_path(@profile)
