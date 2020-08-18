@@ -1,29 +1,30 @@
+<%= render partial: "home_slideshow_js" %>
+
 <div class="home">
 
+  <div id="slideshow">
 
-     </div>
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%= image_tag "fauteuil.jpg", alt: "first", class:"d-block w-100 test"%>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag "enceinte.jpg", alt: "first", class:"d-block w-100 test" %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag "vieux.jpg", alt: "first", class:"d-block w-100 test" %>
-          </div>
+     <div class="content">
+        <%= image_tag "logo.png", alt: "fastpass", class:"logo" %>
+        <h1>Adopte un non valide !</h1>
+
+        <form>
+        <div class="form-group">
+          <input type="city" class="form-control" id="cityinput" placeholder="Entrez une ville">
         </div>
-      </div>
-
-
+        <button type="submit" class="btn btn-primary"><i class="fab fa-accessible-icon"> </i>   Go !</button>
+      </form>
     </div>
+  </div>
+ <!-- <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel"> -->
+<!--     <div class="carousel-inner"> -->
+<!--        <div class="carousel-item active" style="background-image: url('<%= image_path "fauteuil.jpg" %>'); height: 100vh; background-size: cover; background-position: center; filter: grayscale(100%);"> -->
+<!--         -->
+<!--         </div> -->
+<!--         <div class="carousel-item" style="background-image: url('<%= image_path "enceinte.jpg" %>'); height: 100vh; background-size: cover; background-position: center; filter: grayscale(100%);"> -->
+<!--         </div> -->
+<!--         <div class="carousel-item" style="background-image: url('<%= image_path "vieux.jpg" %>'); height: 100vh; background-size: cover; background-position: center; filter: grayscale(100%);"> -->
+<!--         </div> -->
+<!--      </div> -->
+<!--   </div> -->
 </div>
-
-
-
-
-
-
-
-
