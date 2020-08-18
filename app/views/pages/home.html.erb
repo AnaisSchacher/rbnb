@@ -1,11 +1,29 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="home">
 
-<ul>
-  <% @users = User.all %>
-  <% @users.each do |user| %>
-  <li><%= user.name %></li>
-  <%= cl_image_tag user.photo.key, height: 300, width: 400, crop: :fill%>
-  <% end %>
-</ul>
+
+     </div>
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag "fauteuil.jpg", alt: "first", class:"d-block w-100 test"%>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "enceinte.jpg", alt: "first", class:"d-block w-100 test" %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag "vieux.jpg", alt: "first", class:"d-block w-100 test" %>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
 

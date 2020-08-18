@@ -1,5 +1,4 @@
 class ProfilesController < ApplicationController
-
   def index
     @profiles = Profile.all
   end
@@ -19,7 +18,6 @@ class ProfilesController < ApplicationController
         render :new
       end
   end
-
 
   private
   def profile_params
