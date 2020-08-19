@@ -3,6 +3,10 @@ class ProfilesController < ApplicationController
     @profiles = policy_scope(Profile).order(created_at: :desc)
   end
 
+  def show
+    @profile = Profile.find(params[:id])
+  end
+
   def new
     @profile = Profile.new
     authorize @profile
@@ -12,7 +16,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.new(profile_params)
     @profile.user = current_user
       if @profile.save
-        redirect_to profile_path(@user_profile)
+        redirect_to profile_path(current_user)
       else
         render :new
       end
