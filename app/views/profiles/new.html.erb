@@ -3,7 +3,7 @@
 <div class="container">
   <%= simple_form_for @profile do |f|%>
     <%= f.input :address %>
-    <%= f.input :category %>
+    <%= f.input :category, collection: CAT %>
     <%= f.input :description %>
     <%= f.input :price %>
     <%= f.input :available, :input_html => { :checked => true } %>
