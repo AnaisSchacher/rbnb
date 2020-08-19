@@ -1,0 +1,41 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <h1>Toutes les offres disponibles autour de vous (TEST)</h1>
+</div>
+
+<div class="main-container">
+	<div class="row" style="width: 100%;margin:0px;">
+		<div class="col-12 col-lg-4">
+			<!-- TEST -->
+			<div class="cards">
+				<div class="card-trip">
+					<% @profiles.each do |profile| %>
+					  <%= cl_image_tag(profile.user.photo.key, :transformation=>[{height: 400, width: 500, crop: :fill}]) if profile.user.photo.attached? %>
+					  <div class="card-trip-infos">
+					    <div>
+					      <h2><%= profile.user.name %></h2>
+					      <p><%= profile.category %></p>
+					      <p><%=  %></p>
+					    </div>
+					    <h2 class="card-trip-pricing">€ <%= profile.price %></h2>
+					  </div>
+					 <% end %>
+				</div>
+			</div>
+			<!-- 	END	TEST -->
+		</div>
+
+		<div class="col-12 col-lg-8">
+			<div id="map">
+				<script>
+				mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbnR6Zm9ydHVuYXQiLCJhIjoiY2lncG9wdGo3MDAya3V5bHhhcm40b3JkZCJ9.TG_VrwnzjVzCMQ5OmSXKmw';
+				var map = new mapboxgl.Map({
+				container: 'map', // container id
+				style: 'mapbox://styles/mapbox/streets-v11', // style URL
+				center: [-74.5, 40], // starting position [lng, lat]
+				zoom: 9 // starting zoom
+				});
+				</script>
+			</div>
+		</div>
+	</div>
+</div>
