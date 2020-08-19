@@ -4,14 +4,13 @@ class ProfilesController < ApplicationController
   end
 
   def new
-    @user = User.find(params[current_user.id])
     @profile = Profile.new
+    authorize @profile
   end
 
   def create
-    @user = User.find(params[current_user.id])
     @profile = Profile.new(profile_params)
-    @profile.user = @user_profile
+    @profile.user = current_user
       if @profile.save
         redirect_to profile_path(@user_profile)
       else
