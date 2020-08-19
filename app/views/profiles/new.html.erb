@@ -1,7 +1,7 @@
 <h1>Créer un nouveau profile pour : <%= current_user.username %> </h1>
 
 <div class="container">
-  <%= simple_form_for [@user, @profile] do |f|%>
+  <%= simple_form_for @profile do |f|%>
     <%= f.input :address %>
     <%= f.input :category %>
     <%= f.input :description %>
