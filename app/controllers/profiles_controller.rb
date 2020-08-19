@@ -6,7 +6,6 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     authorize @profile
-
   end
 
   def new
@@ -19,7 +18,7 @@ class ProfilesController < ApplicationController
     @profile.user = current_user
     authorize @profile
       if @profile.save
-        redirect_to profile_path(@profile.id)
+        redirect_to profile_path(current_user)
       else
         render :new
       end

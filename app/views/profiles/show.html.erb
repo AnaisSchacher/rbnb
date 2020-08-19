@@ -1,9 +1,11 @@
-<div class= "body">
-  <p>
-    <%= @profile.description %>
-    <%= @profile.address %>
-  </p>
-  <h4><%= @profile.price %></h4>
+<div class="container">
+  <h2>Profile de : <%= @profile.user.username %></h2>
+  <%= cl_image_tag(@profile.user.photo.key, :transformation=>[{height: 400, width: 500, crop: :fill}]) if profile.user.photo.attached? %>
+  <h3>Adresse : <%= @profile.address %></h3>
+  <h3>Handicap : <%= @profile.category %></h3>
+  <h3>Ma description : </h3>
+  <p><%= @profile.description %></p>
+  <h4>Prix à l'heure : <%= @profile.price %></h4>
 
 <%= link_to "Retour", profiles_path  %>
 </div>
