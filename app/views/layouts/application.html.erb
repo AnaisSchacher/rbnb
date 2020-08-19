@@ -36,14 +36,13 @@
         <% if user_signed_in? %>
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <h3><%= link_to "Tableau de bord", dashboard_path %></h3>
+              <h3><%= link_to "Annonces", profiles_path %></h3>
             </li>
-            <li class="nav-item">
-              <h3> <%= link_to "Annonces", profiles_path %></h3>
-            </li>
-            <li class="nav-item dropdown">
+            <li class="dropdown">
               <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%= image_url("gilbert-montagne.jpg") %>/>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <%= link_to "Tableau de bord", dashboard_path, class:"dropdown-item" %>
+                <%= link_to "Créer une nouvelle annonce", new_profile_path, class:"dropdown-item" %>
                 <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
               </div>
             </li>
