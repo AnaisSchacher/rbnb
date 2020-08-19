@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   def index
-    @profiles = Profile.all
+    @profiles = policy_scope(Profile).order(created_at: :desc)
   end
 
   def new

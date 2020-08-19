@@ -45,7 +45,7 @@
 }
 
 .logo {
-  margin-top: -400px;
+  margin-top: -200px;
   width: 250px;
 }
 
@@ -54,5 +54,10 @@ form {
   display: flex;
   height: 40px;
   margin: 5px;
+  margin-bottom: 30px;
 
+}
+
+.all {
+  font-weight: bold;
 }
