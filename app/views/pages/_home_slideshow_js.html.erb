@@ -1,0 +1,21 @@
+<script type="text/javascript">
+
+  const images_paths = [
+    "url(<%= asset_path("fauteuil.jpg") %>)",
+    "url(<%= asset_path("vieux.jpg") %>)",
+    "url(<%= asset_path("enceinte.jpg") %>)"
+  ];
+
+  let image_index = 1;
+
+  setInterval(() => {
+    const e = document.getElementById("slideshow");
+    e.style.backgroundImage = images_paths[image_index];
+    image_index += 1;
+    if (image_index >= images_paths.length) {
+      image_index = 0;
+    }
+  }, 2000);
+
+
+</script>
