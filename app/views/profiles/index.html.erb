@@ -5,21 +5,25 @@
   	<div class="row" style="width: 100%;margin:0px;">
   		<div class="col-12 col-lg-4">
   			<!-- TEST -->
+
   			<div class="cards">
   				<div class="card-trip">
-  					<% @profiles.each do |profile| %>
-  					  <%= cl_image_tag(profile.user.photo.key, :transformation=>[{height: 400, width: 500, crop: :fill}]) if profile.user.photo.attached? %>
-  					  <div class="card-trip-infos">
-  					    <div>
-  					      <h2><%= profile.user.name %></h2>
-  					      <p><%= profile.category %></p>
-  					      <p><%=  %></p>
-  					    </div>
-  					    <h2 class="card-trip-pricing">€ <%= profile.price %></h2>
-  					  </div>
-  					 <% end %>
-  				</div>
-  			</div>
+    					<% @profiles.each do |profile| %>
+                <%= link_to profile_path(profile) do %>
+
+      					  <%= cl_image_tag(profile.user.photo.key, :transformation=>[{height: 400, width: 500, crop: :fill}]) if profile.user.photo.attached? %>
+      					  <div class="card-trip-infos">
+      					    <div>
+      					      <h2><%= profile.user.name %></h2>
+      					      <p><%= profile.category %></p>
+      					      <p><%=  %></p>
+      					    </div>
+      					    <h2 class="card-trip-pricing">€ <%= profile.price %></h2>
+      					  </div>
+      					 <% end %>
+                <% end %>
+    				</div>
+    			</div>
   			<!-- 	END	TEST -->
   		</div>
 
