@@ -15,7 +15,8 @@ User.destroy_all
 puts "Deleting all users..."
 
 puts 'Creating 6 fake users...'
-6.times do
+
+5.times do  
   user = User.new(
     username: Faker::Name.last_name,
     name: Faker::Name.name,
@@ -32,11 +33,29 @@ puts 'Creating 6 fake users...'
   user.save!
   puts "user_saved"
 end
+# TEST SEED POUR LA DEMO
+
+usertest = User.new(
+  username: "giloudestropiques",
+  name: "Gilbert Montagné",
+  email: "gilou@gmail.com",
+  password: "123456",
+)
+
+puts "usertest_created"
+file = URI.open('https://l1visible.com/wp-content/uploads/2011/10/gilbert-montagne-1170x776')
+puts "url_defined"
+usertest.photo.attach(io: file, filename: 'user.png', content_type: 'image/png')
+puts "photo_attached"
+# binding.pry
+usertest.save!
+puts "usertest_saved"
+
 
 puts "Deleting all profiles..."
 
 puts 'Creating 4 fake profiles...'
-4.times do
+3.times do
   profile = Profile.new(
     user: User.take,
     address: Faker::Address.street_address,
@@ -45,10 +64,21 @@ puts 'Creating 4 fake profiles...'
     price: Faker::Number.between(from: 10, to: 30),
     description: Faker::Lorem.paragraph(sentence_count: 4)
   )
-  puts "profile_created"
+  puts "profiletest_created"
   profile.save!
-  puts "profile_saved"
+  puts "profiletest_saved"
 end
-
+# TEST SEED POUR LA DEMO
+profiletest = Profile.new(
+    user: User.last,
+    address: "16 villa Gaudelet, Paris, France",
+    available: true,
+    category: "Malvoyant",
+    price: Faker::Number.between(from: 10, to: 30),
+    description: Faker::Lorem.paragraph(sentence_count: 4),
+  )
+  puts "profiletest_created"
+  profiletest.save!
+  puts "profiletest_saved"
 
 puts 'Finished!'
