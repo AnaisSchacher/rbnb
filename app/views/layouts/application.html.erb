@@ -36,7 +36,7 @@
         <% if user_signed_in? %>
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <h3><%= link_to "Tableau de bord", root_path %></h3>
+              <h3><%= link_to "Tableau de bord", dashboard_path %></h3>
             </li>
             <li class="nav-item">
               <h3> <%= link_to "Annonces", profiles_path %></h3>
@@ -52,7 +52,7 @@
         <% else  %>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <h3><%= link_to "Accueil", dashboard_path %></h3>
+            <h3><%= link_to "Accueil", root_path %></h3>
           </li>
           <li class="nav-item">
             <h3><%= link_to "Connexion", new_user_session_path %></h3>
