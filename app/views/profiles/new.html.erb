@@ -1,13 +1,15 @@
-<h1>Créer un nouveau profile pour : <%= current_user.username %> </h1>
+<div class="container">
+  <h1>Créer un nouveau profile pour : <%= current_user.username %> </h1>
 
-<div class="body">
-  <%= simple_form_for @profile do |f|%>
-    <%= f.input :address %>
-    <%= f.input :category, collection: CAT %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :available, :input_html => { :checked => true } %>
-    <%= f.submit %>
-  <% end %>
+  <div class="form-group">
+    <%= simple_form_for @profile do |f|%>
+      <%= f.input :address, class: "form-control", placeholder:"15, rue de la Paix Paris"%>
+      <%= f.input :category, collection: CAT, class: "form-control mr-1" %>
+      <%= f.input :description, class: "form-control", placeholder:"Soyez vous-même!" %>
+      <%= f.input :price, class: "form-control", placeholder:"15€" %>
+      <%= f.input :available, :input_html => { :checked => true } %>
+      <%= f.submit class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
 
