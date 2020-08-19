@@ -73,7 +73,7 @@ profiletest = Profile.new(
     user: User.last,
     address: "16 villa Gaudelet, Paris, France",
     available: true,
-    category: "Malvoyant",
+    category: "Handicap sensoriel",
     price: Faker::Number.between(from: 10, to: 30),
     description: Faker::Lorem.paragraph(sentence_count: 4),
   )
