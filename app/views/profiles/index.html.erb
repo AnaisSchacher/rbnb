@@ -5,29 +5,27 @@
 
   		<div class="col-12 col-lg-6">
         <% @profiles.each do |profile| %>
-          <div class="card">
-            <%= link_to profile_path(profile), class:"no-text-decoration" do %>
-              <div class="card__title">
-                <h4>Available</h4>
-              </div>
-              <div class="card__body">
-                <div class="half">
-                  <div class="featured_text">
-                    <h2><%= profile.user.name %></h2>
-                    <p class="sub"><%= profile.category %></p>
-                    <p class="price"><%= profile.price %>€</p>
+         <%= link_to profile_path(profile), style:"text-decoration:none;" do %>
+            <div class="card-list">
+              <div class="card-product">
+                <div class="picture">
+                  <%= cl_image_tag(profile.user.photo.key) if profile.user.photo.attached? %>    </div>
+                <div class="annonce">
+                  <p><%= profile.address %></p>
+                  <div class="infos">
+                  <h2><%= profile.user.name %></h2>
+                    <p><%= profile.category %></p>
+                    <p><%= profile.description %></p>
                   </div>
-                  <div class="image">
-                    <%= cl_image_tag(profile.user.photo.key, :transformation=>[{height: 400, width: 500, crop: :fill}]) if profile.user.photo.attached? %>          </div>
+                  <div class="book">
+                    <button type="button", class="btn btn-outline-secondary">Réserver</button>
+                    <h3><%= profile.price; %>€</h3>
+
                   </div>
-              </div>
-              <div class="card__footer">
-                 <div class="action">
-                  <button type="button">Réserver</button>
                 </div>
               </div>
-            <% end %>
-          </div>
+            </div>
+          <% end %>
         <% end %>
 
     			<!-- 	END	TEST -->
@@ -51,3 +49,9 @@
   	</div>
   </div>
 </div>
+
+
+<!-- do not change the markup -->
+
+
+
