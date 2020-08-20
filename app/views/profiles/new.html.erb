@@ -1,14 +1,15 @@
 <div class="container">
-  <h1>Créer un nouveau profile pour : <%= current_user.username %> </h1>
+  <h1>Créer une nouvelle annonce pour : <%= current_user.username %> </h1>
 
   <div class="form-group">
     <%= simple_form_for @profile do |f|%>
-      <%= f.input :address, class: "form-control", placeholder:"15, rue de la Paix Paris"%>
-      <%= f.input :category, collection: CAT, class: "form-control mr-1" %>
-      <%= f.input :description, class: "form-control", placeholder:"Soyez vous-même!" %>
-      <%= f.input :price, class: "form-control", placeholder:"15€" %>
-      <%= f.input :available, :input_html => { :checked => true } %>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.input :address, label: "Adresse", class: "form-control", placeholder:"15, rue de la Paix Paris"%>
+      <%= f.input :category, as: :radio_buttons, collection: CAT, class: "form-control mr-1" %>
+      <%#= f.input :category, collection: CAT, class: "form-control mr-1" %>
+      <%= f.input :description, label: "Description", class: "form-control", placeholder:"Soyez vous-même!" %>
+      <%= f.input :price, label: "Prix", class: "form-control", placeholder:"15€" %>
+      <%= f.input :available, label: "Disponible", :input_html => { :checked => true } %>
+      <%= f.submit "Créer l'annonce", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

@@ -8,27 +8,34 @@
           <div class="form-group">
             <%= f.input :name,
                         required: true,
+                        label: "Nom",
+                        placeholder: "Gilbert Montagné",
                         class: "form-control" %>
             <%= f.input :username,
                         required: true,
+                        label: "Nom d'utilisateur",
+                        placeholder: "giloudestropiques",
                         class: "form-control" %>
             <%= f.input :email,
                         required: true,
                         autofocus: true,
+                        placeholder: "gilou85@hotmail.com",
                         input_html: { autocomplete: "email" },
                         class: "form-control" %>
             <%= f.input :password,
                         required: true,
+                        label: "Mot de passe",
                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                         input_html: { autocomplete: "new-password" },
                         class: "form-control" %>
             <%= f.input :password_confirmation,
                         required: true,
+                        label: "Confirmez le mot de passe, s'il vous plaît",
                         input_html: { autocomplete: "new-password" },
                         class: "form-control" %>
             <%= f.input :photo, as: :file %>
 
-            <%= f.submit class: "btn btn-primary" %>
+            <%= f.submit "S'inscrire", class: "btn btn-primary" %>
           </div>
         <div class="form-links">
           <%= render "devise/shared/links" %>
