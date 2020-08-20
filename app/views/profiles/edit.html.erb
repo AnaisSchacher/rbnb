@@ -1,14 +1,16 @@
 <div class="container">
-  <h1>Modifier le profile de <%= current_user.username %> </h1>
+  <h1>Modifier l'annonce de <%= current_user.username %> </h1>
 
   <div class="form-group">
     <%= simple_form_for [@user, @profile] do |f|%>
-      <%= f.input :address, class: "form-control" %>
-      <%= f.input :category, collection: CAT, class: "form-control mr-1" %>
-      <%= f.input :description, class: "form-control" %>
-      <%= f.input :price, class: "form-control" %>
-      <%= f.input :available, :input_html => { :checked => true } %>
-      <%= f.submit class: "btn btn-primary" %>
+      <%= f.input :address, label: "Adresse", class: "form-control" %>
+      <%#= f.collection_check_boxes :options, [[true, 'Yes'], [false, 'No']], :first, :last %>
+      <%= f.input :category, as: :radio_buttons, collection: CAT, class: "form-control mr-1" %>
+      <%#= f.input :category, collection: CAT, class: "form-control mr-1" %>
+      <%= f.input :description, label: "Description", class: "form-control" %>
+      <%= f.input :price, label: "Prix", class: "form-control" %>
+      <%= f.input :available, label: "Disponible", :input_html => { :checked => true } %>
+      <%= f.submit "Modifier l'annonce", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>

@@ -11,11 +11,12 @@
                         class: "form-control" %>
             <%= f.input :password,
                         required: false,
+                        label: "Mot de passe",
                         input_html: { autocomplete: "current-password" },
                         class: "form-control" %>
-            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            <%= f.input :remember_me, label: "Se souvenir de moi", as: :boolean if devise_mapping.rememberable? %>
             <div class="btn-form">
-              <%= f.submit class: "btn btn-primary" %>
+              <%= f.submit "Se connecter", class: "btn btn-primary" %>
             </div>
           </div>
         <div class="form-links">
