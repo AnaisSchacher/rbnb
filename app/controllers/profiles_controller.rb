@@ -2,17 +2,33 @@ class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
+    scope = policy_scope(Profile).order(created_at: :desc)
     if params[:query].present?
       sql_query = " \
         profiles.address @@ :query \
         OR profiles.description @@ :query \
       "
-      scope = policy_scope(Profile).order(created_at: :desc)
-      @profiles = scope.where(sql_query, query: "%#{params[:query]}%")
+      @search = scope.where(sql_query, query: "%#{params[:query]}%")
+      @profiles = @search.geocoded
+      @markers = @profiles.map do |profile|
+        {
+        lat: profile.latitude,
+        lng: profile.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { profile: profile }),
+        image_url: helpers.asset_url('logo_fauteuil.png')
+        }
+      end
     else
-      @profiles = policy_scope(Profile).order(created_at: :desc)
+      @profiles = scope.geocoded
+      @markers = @profiles.map do |profile|
+        {
+        lat: profile.latitude,
+        lng: profile.longitude
+        }
+      end
     end
   end
+
 
   def show
     @profile = Profile.find(params[:id])
