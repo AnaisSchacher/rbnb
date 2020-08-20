@@ -7,8 +7,8 @@ class Booking < ApplicationRecord
   validates :end_time, presence: true
 
   def duration
-  	d = self.end_time - self.start_time
-  	t = 86400
-  	return (d/t).to_i
+    d = self.end_time - self.start_time
+    t = 86400
+    return (d/t).to_i
   end
 end

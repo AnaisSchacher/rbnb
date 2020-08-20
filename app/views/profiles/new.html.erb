@@ -3,12 +3,15 @@
 
   <div class="form-group">
     <%= simple_form_for @profile do |f|%>
+      <%= f.input :title, label: "Titre", class: "form-control", placeholder:"Handicapé avec carte de stationnement et fauteuil" %>
       <%= f.input :address, label: "Adresse", class: "form-control", placeholder:"15, rue de la Paix Paris"%>
       <%= f.input :category, as: :radio_buttons, collection: CAT, class: "form-control mr-1" %>
       <%#= f.input :category, collection: CAT, class: "form-control mr-1" %>
       <%= f.input :description, label: "Description", class: "form-control", placeholder:"Soyez vous-même!" %>
       <%= f.input :price, label: "Prix", class: "form-control", placeholder:"15€" %>
       <%= f.input :available, label: "Disponible", :input_html => { :checked => true } %>
+      <%= f.input :photo, as: :file %>
+
       <%= f.submit "Créer l'annonce", class: "btn btn-primary" %>
     <% end %>
   </div>

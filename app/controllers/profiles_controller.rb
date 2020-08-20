@@ -66,8 +66,15 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def destroy
+    @profile = Profile.find(params[:id])
+    authorize @profile
+    @profile.destroy
+    redirect_to profiles_path
+  end
+
   private
   def profile_params
-    params.require(:profile).permit(:user_id, :address, :available, :category, :price, :description)
+    params.require(:profile).permit(:user_id, :title, :address, :available, :category, :price, :description, :photo)
   end
 end
