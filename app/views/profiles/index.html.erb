@@ -8,7 +8,11 @@
           <div class="card">
             <%= link_to profile_path(profile), class:"no-text-decoration" do %>
               <div class="card__title">
-                <h4>Available</h4>
+                <% if profile.available? %>
+                  <%= image_tag("icon-disponible", class:"img-available", :transformation=>[{height: 70, width: 70, crop: :fill}]) %>
+                <% else %>
+                  <%= image_tag("icon-disponible", class:"img-available img-unavailable", :transformation=>[{height: 70, width: 70, crop: :fill}]) %>
+                <% end %>
               </div>
               <div class="card__body">
                 <div class="half">

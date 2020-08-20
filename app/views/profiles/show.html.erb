@@ -3,7 +3,14 @@
     <div class="card" style="width: 100%;">
       <%= cl_image_tag(@profile.user.photo.key, :transformation=>[{height: 400, width: 500, crop: :fill}]) if @profile.user.photo.attached? %>
       <div class="card-body">
-        <h3>Profile de : <strong><%= @profile.user.username %></strong></h3>
+        <div class="card__title">
+          <% if @profile.available? %>
+            <%= image_tag("icon-disponible", class:"img-available", :transformation=>[{height: 70, width: 70, crop: :fill}]) %>
+          <% else %>
+            <%= image_tag("icon-disponible", class:"img-available img-unavailable", :transformation=>[{height: 70, width: 70, crop: :fill}]) %>
+          <% end %>
+        </div>
+        <h3>Annonce de <strong><%= @profile.user.username %></strong></h3>
         <h4>Ma description : </h4>
         <p class="card-text"><%= @profile.description %></p>
       </div>
