@@ -1,7 +1,38 @@
-.edit_profile {
-  flex-direction: column;
+// .edit_profile {
+//   flex-direction: column;
+// }
+
+// #new_profile {
+//   flex-direction: column;
+// // }
+// body {
+//   font-size: 14px;
+//   height: 100%;
+// }
+.log-in-form {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
 }
 
-#new_profile {
+.sign-form {
+  min-height: 70vh;
+}
+
+.log-form {
+  // position: relative;
+  min-height: 100%;
+}
+
+.form-control {
+  width: 270px;
+}
+
+.btn-form {
+  width: 100%
+}
+
+.new_user {
+  display: flex;
   flex-direction: column;
 }
