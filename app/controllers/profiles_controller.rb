@@ -2,7 +2,16 @@ class ProfilesController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @profiles = policy_scope(Profile).order(created_at: :desc)
+    if params[:query].present?
+      sql_query = " \
+        profiles.address @@ :query \
+        OR profiles.description @@ :query \
+      "
+      scope = policy_scope(Profile).order(created_at: :desc)
+      @profiles = scope.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @profiles = policy_scope(Profile).order(created_at: :desc)
+    end
   end
 
   def show
