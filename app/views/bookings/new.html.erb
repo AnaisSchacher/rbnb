@@ -1,0 +1,11 @@
+<div class="container">
+  <div>
+    <%= simple_form_for [@profile, @booking] do |f| %>
+    <%= @profile.user.name %>
+    <%= f.input :start_time, as: :date, html5: true %>
+    <%= f.input :end_time, as: :date, html5: true %>
+    <%= f.button :submit, "Réserver cette annonce", class: "btn btn-primary" %>
+    <% end %>
+		<%= link_to "Retour à l'annonce", profile_path(@profile)  %>
+  </div>
+</div>

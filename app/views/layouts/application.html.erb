@@ -5,10 +5,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <style>
-      body { margin: 0; padding: 0; }
-      #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-    </style>
 
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
@@ -23,45 +19,57 @@
   </head>
 
   <body>
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-      <a class="navbar-brand" href="#">
-        <img src="https://fastpass-441.herokuapp.com/assets/logo-b0e2d0055932f7215b24fc77273b8d0db73c064eb487d5fe8e4e50cf68d32f31.png" />
-    </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <div class="content-wrapper">
 
+      <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+        <div class="navbar-brand">
+          <%= link_to image_tag("https://fastpass-441.herokuapp.com/assets/logo-b0e2d0055932f7215b24fc77273b8d0db73c064eb487d5fe8e4e50cf68d32f31.png"), root_path %>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <% if user_signed_in? %>
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <h3><%= link_to "Annonces", profiles_path %></h3>
-            </li>
-            <li class="dropdown">
-              <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%= image_url("gilbert-montagne.jpg") %>/>
-              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                <%= link_to "Tableau de bord", dashboard_path, class:"dropdown-item" %>
-                <%= link_to "Créer une nouvelle annonce", new_profile_path, class:"dropdown-item" %>
-                <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
-              </div>
-            </li>
-          </ul>
-        <% else  %>
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <h3><%= link_to "Accueil", root_path %></h3>
-          </li>
-          <li class="nav-item">
-            <h3><%= link_to "Connexion", new_user_session_path %></h3>
-          </li>
-        </ul>
-        <% end %>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <% if user_signed_in? %>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <h3><%= link_to "Créer une nouvelle annonce", new_profile_path %></h3>
+              </li>
+              <li class="nav-item active">
+                <h3><%= link_to "Annonces", profiles_path %></h3>
+              </li>
+              <li class="nav-item">
+                <h3><%= link_to "Tableau de bord", dashboard_path %></h3>
+              </li>
 
+              <li class="dropdown">
+                <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src=<%= image_url("gilbert-montagne.jpg") %>/>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                  <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class:"dropdown-item"%>
+                </div>
+              </li>
+            </ul>
+          <% else  %>
+            <% if params[:action] == "home" %>
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <h3><%= link_to "Connexion", new_user_session_path %></h3>
+                  </li>
+                </ul>
+            <% else %>
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <h3><%= link_to "Accueil", root_path %></h3>
+                </li>
+               </ul>
+            <% end %>
+          <% end %>
+
+        </div>
       </div>
+      <%= yield %>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     </div>
-    <%= yield %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
   </body>
 </html>

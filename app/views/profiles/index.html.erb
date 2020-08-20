@@ -18,32 +18,25 @@
                     <p><%= profile.description %></p>
                   </div>
                   <div class="book">
-                    <button type="button", class="btn btn-outline-secondary">Réserver</button>
+                  <button type="button", class="btn btn-outine-secondary><%= link_to "Réserver", new_profile_booking_path(profile) %></button>
                     <h3><%= profile.price; %>€</h3>
 
                   </div>
+
                 </div>
               </div>
             </div>
           <% end %>
         <% end %>
 
-    			<!-- 	END	TEST -->
-  		</div>
+ </div>
 
   		<div class="col-12 col-lg-6">
-  			<div id="map">
-  				<script>
-  				mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbnR6Zm9ydHVuYXQiLCJhIjoiY2lncG9wdGo3MDAya3V5bHhhcm40b3JkZCJ9.TG_VrwnzjVzCMQ5OmSXKmw';
-  				var map = new mapboxgl.Map({
-  				container: 'map', // container id
-  				style: 'mapbox://styles/mapbox/streets-v11', // style URL
-  				center: [-74.5, 40], // starting position [lng, lat]
-  				zoom: 9 // starting zoom
-  				});
-  				</script>
-  			</div>
-  		</div>
+        <div id="map"
+           style="width: 100%; height: 600px;"
+           data-markers="<%= @markers.to_json %>"
+           data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+        </div>
 
 
   	</div>
