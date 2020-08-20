@@ -3,7 +3,7 @@
   <div class="main-container">
   	<div class="row" style="width: 100%;margin:0px;">
 
-  		<div class="col-12 col-lg-4">
+  		<div class="col-12 col-lg-6">
         <% @profiles.each do |profile| %>
           <div class="card">
             <%= link_to profile_path(profile), class:"no-text-decoration" do %>
@@ -33,7 +33,7 @@
     			<!-- 	END	TEST -->
   		</div>
 
-  		<div class="col-12 col-lg-8">
+  		<div class="col-12 col-lg-6">
   			<div id="map">
   				<script>
   				mapboxgl.accessToken = 'pk.eyJ1IjoiZnJhbnR6Zm9ydHVuYXQiLCJhIjoiY2lncG9wdGo3MDAya3V5bHhhcm40b3JkZCJ9.TG_VrwnzjVzCMQ5OmSXKmw';
