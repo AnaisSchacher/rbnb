@@ -5,12 +5,14 @@
  color: #59595A;
 }
 
+
 .card-product {
   display: flex;
   width: 800px;
   height: 300px;
   align-items: center;
-  border-top: solid 1px #59595A;
+  border-top: solid 1px grey;
+
   }
 
 .annonce {
@@ -18,16 +20,30 @@
   width: 400px;
 }
 
-.annonce p {
-}
+
 
 img {
   width: 350px;
   border-radius: 10px;
  }
 
-.book {
+.book-reservation {
   display: flex;
   justify-content: space-between;
   margin-top: 30px;
+  width: 400px;
+}
+
+a {
+  text-decoration: none!important;
+  color: #59595A;
+
+}
+
+a:hover {
+  color: grey;
+}
+
+.petit {
+  font-size: 16px;
 }
