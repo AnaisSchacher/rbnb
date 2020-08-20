@@ -8,12 +8,17 @@
         <%= image_tag "logo.png", alt: "fastpass", class:"logo" %>
         <h1>Adopte un non valide !</h1>
 
-        <form>
-        <div class="form-group">
-          <input type="city" class="form-control" id="cityinput" placeholder="Entrez une ville">
+        <div class="form">
+          <%= form_tag profiles_path, method: :get do %>
+            <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Enter a city"
+            %>
+            <%= submit_tag "Go !", class: "btn btn-primary" %>
+          <% end %>
         </div>
-        <button type="submit" class="btn btn-primary"><i class="fab fa-accessible-icon"> </i>   Go !</button>
-      </form>
+
       <%= link_to "Voir toutes nos annonces", profiles_path, class:"btn btn-outline-light btn-lg all" %>
 
    </div>
@@ -30,3 +35,6 @@
 <!--      </div> -->
 <!--   </div> -->
 </div>
+
+
+<i class="fab fa-accessible-icon"> </i> "Go !"

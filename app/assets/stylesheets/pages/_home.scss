@@ -21,6 +21,7 @@
   background-image: url(asset_path("fauteuil.jpg"));
   background-size: cover;
   background-position: center;
+  transition: 0.8s;
 }
 
 .home {
@@ -50,7 +51,7 @@
 }
 
 
-form {
+.form {
   display: flex;
   height: 40px;
   margin: 5px;
