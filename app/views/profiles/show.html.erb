@@ -16,6 +16,7 @@
       <div class="card-body">
         <%= link_to "Retour", profiles_path  %>
         <%= link_to "Modifier Profile", edit_profile_path(@profile) %>
+        <button type="button"><%= link_to "Réserver", new_profile_booking_path(@profile) %></button>
       </div>
     </div>
   </div>

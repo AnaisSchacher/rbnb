@@ -1,12 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-      <%= @user.name %>
-    </div>
-    <div col-4>
-  </div>
-</div>
+<h1><%= "Bienvenu(e) sur votre tableau de bord #{@user.username}!" %></h1>
+<br>
 
+<h2>Votre historique de réservation :</h2> 
+<br>
+  <% @bookings.each do |booking| %>
+    <ul class="">
+      <li class="">
+      	<%= "Skippeur: #{booking.profile.user.name}" %>
+      	<%= "Durée: #{booking.duration} jour(s)" %>
+      	<%= "Prix: #{booking.price}€" %>
+        <%= link_to "Détails de votre commande", booking_path(booking) %>
+        <%= link_to "Annuler", booking_path(booking), method: :delete, data: { confirm: "Êtes-vous sûr(e) d'annuler votre commande ?" } %>
+      </li>
+    </ul>
+  <% end %>
 
-
-
+<%= link_to "Retour aux annonces", profiles_path  %>

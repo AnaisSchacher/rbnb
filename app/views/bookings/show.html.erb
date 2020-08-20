@@ -1,0 +1,12 @@
+<h1>Votre réservation avec <%= @booking.profile.user.name %></h1>
+
+<ul>
+	<li><%= "Nom: #{@booking.profile.user.name}" %></li>
+	<li><%= "Durée: #{@booking.duration} jour(s)" %></li>
+	<li><%= "Prix: #{@booking.price}€" %></li>
+	<li><%= "Description: #{@booking.profile.description}" %></li>
+	<li><%= "Statut: #{@booking.accepted}" %></li>
+</ul>
+
+<%= link_to "Retour aux annonces", dashboard_path %> <br>
+<%= link_to "Annuler votre commande", booking_path(@booking), method: :delete, data: { confirm: "Êtes-vous sûr(e) d'annuler votre commande ?" } %>

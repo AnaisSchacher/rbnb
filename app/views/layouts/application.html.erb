@@ -36,6 +36,9 @@
         <% if user_signed_in? %>
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
+              <h3><%= link_to "Accueil", root_path %></h3>
+            </li>
+            <li class="nav-item active">
               <h3><%= link_to "Annonces", profiles_path %></h3>
             </li>
             <li class="dropdown">
