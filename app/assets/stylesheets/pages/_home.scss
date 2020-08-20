@@ -1,6 +1,4 @@
-
-// .carousel { z-index: -99; } /* keeps this behind all content */
-// .carousel-item {
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');// .carousel-item {
 //     position: fixed;
 //     width: 100%; height: 100%;
 //     -webkit-transition: opacity 1s;
@@ -39,26 +37,30 @@
 
 .content h1 {
   color: white;
-  font-weight: bold;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 68px;
   margin-top : 100px;
   margin-bottom: 30px;
 
 }
 
 .logo {
-  margin-top: -200px;
+  margin-top: -250px;
+  margin-bottom: -50px;
   width: 250px;
 }
 
 
-.form {
+ form {
   display: flex;
   height: 40px;
   margin: 5px;
   margin-bottom: 30px;
+  justify-content: center;
 
 }
 
 .all {
-  font-weight: bold;
+  font-weight: 600;
 }
+

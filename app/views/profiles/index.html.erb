@@ -11,7 +11,7 @@
                 <div class="picture">
                   <%= cl_image_tag(profile.user.photo.key) if profile.user.photo.attached? %>    </div>
                 <div class="annonce">
-                  <p><%= profile.address %></p>
+                  <p><%= profile.address.capitalize %></p>
                   <div class="infos">
                   <h2><%= profile.user.name %></h2>
                     <p><%= profile.category %></p>
