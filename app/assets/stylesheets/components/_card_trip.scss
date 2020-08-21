@@ -9,16 +9,17 @@
 
 .card-product {
   display: flex;
-  width: 800px;
+  width: 650px;
   height: 400px;
   align-items: center;
   justify-content: center;
   border-top: solid 1px grey;
+  margin-left: 20px;
   }
 
 .annonce {
   padding-left: 20px;
-  width: 400px;
+  width: 250px;
 }
 
 .card-head {
@@ -28,8 +29,8 @@
 
 
 .picture {
-  width: 350px;
-  height: 250px;
+  width: 250px;
+  height: 150px;
  }
 
  .picture img {
