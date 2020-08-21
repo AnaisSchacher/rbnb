@@ -1,12 +1,15 @@
-<h1>Votre réservation avec <%= @booking.profile.user.name %></h1>
+<div class="booking-show-container">
 
-<ul>
-	<li><%= "Titre de l'annonce: #{@booking.profile.title}" %></li>
-	<li><%= "Du #{@booking.start_time.strftime("%m/%d/%Y")} au #{@booking.end_time.strftime("%m/%d/%Y")}" %></li>
-	<li><%= "Durée: #{@booking.duration} jour(s)" %></li>
-	<li><%= "Prix: #{@booking.price}€" %></li>
-	<li><%= "Description: #{@booking.profile.description}" %></li>
-</ul>
+  <h2>Votre réservation avec <%= @booking.profile.user.name %></h2>
 
-<%= link_to "Retour aux annonces", dashboard_path %> <br>
-<%= link_to "Annuler votre commande", booking_path(@booking), method: :delete, data: { confirm: "Êtes-vous sûr(e) d'annuler votre commande ?" } %>
+  <h1><%= "Titre de l'annonce: #{@booking.profile.title}" %></h1>
+  <p><%= "Du #{@booking.start_time.strftime("%m/%d/%Y")} au #{@booking.end_time.strftime("%m/%d/%Y")}" %></p>
+  <p><%= "Durée: #{@booking.duration} jour(s)" %></p>
+  <p><%= "Prix: #{@booking.price}€" %></p>
+  <p><%= "Description: #{@booking.profile.description}" %></p>
+
+  <%= link_to "Retour aux annonces", dashboard_path %>
+  <%= link_to booking_path, method: :delete, data: { confirm: "Êtes-vous sûr(e) d'annuler votre réservation ?" } do %>
+    <p><i class="fas fa-ban"></i> Annuler</p>
+  <% end %>
+</div>

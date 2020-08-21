@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
 	def index
     @bookings = Booking.where(user: current_user)
   end
-	
+
 	def new
 		@profile = Profile.find(params[:profile_id])
     @booking = Booking.new
@@ -41,5 +41,5 @@ class BookingsController < ApplicationController
 
   def booking_params
     params.require(:booking).permit(:start_time, :end_time)
-  end  
+  end
 end
