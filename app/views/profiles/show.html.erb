@@ -23,3 +23,36 @@
     </div>
   </div>
 </div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="card-show">
+    <div class="row">
+      <div class="col-12 col-lg-8">
+        <div class="annonce">
+          <div class="back-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @profile.photo.key, height: 650, width: 800, crop: :fill %>');">
+           <div class="haut" >
+            <h1><%= @profile.title %></h1>
+            <p><%= @profile.category %></p>
+          </div>
+        </div>
+          <div class="bas">
+            <div class= "more">
+              <p>13 rue de xxxx </p>
+              <h4>40E</h4>
+            </div>
+            <p>Dispo pour mariages et enterrements</p>
+          </div>
+        </div>
+        </div>
+   </div>
+
+
+    </div>
+    <div class="col-12 col-lg-4">
+    <p>Test</p>
+    </div>
+  </div>
+</div>

@@ -8,7 +8,7 @@
         <%= image_tag "logo.png", alt: "fastpass", class:"logo" %>
         <h1>Adopte un non valide !</h1>
 
-        <div class="form">
+        <div class="home-form">
           <%= form_tag profiles_path, method: :get do %>
             <%= text_field_tag :query,
               params[:query],

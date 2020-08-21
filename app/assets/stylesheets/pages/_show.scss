@@ -1,0 +1,38 @@
+.card-show {
+  display: flex;
+  width: 100%;
+}
+
+.annonce {
+  width: 800px;
+  heigth: 500px;
+}
+
+.haut {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  color: white;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.back-show {
+    display: block;
+    width: auto;
+    height: 600px;;
+    max-height: 100%;
+    border-radius: 50px;
+}
+
+.more {
+  display:flex;
+  justify-content: space-between;
+}
+
+.bas {
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
