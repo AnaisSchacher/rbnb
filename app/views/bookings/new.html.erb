@@ -1,4 +1,4 @@
-<div class="container">
+<div class="booking-container">
   <div>
     <%= simple_form_for [@profile, @booking] do |f| %>
     <%= @profile.user.name %>
@@ -9,3 +9,5 @@
 		<%= link_to "Retour à l'annonce", profile_path(@profile)  %>
   </div>
 </div>
+
+
