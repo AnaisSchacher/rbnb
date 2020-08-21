@@ -5,12 +5,13 @@
 .dashboard-card-product {
   overflow: hidden;
   height: 120px;
-  width: 600px;
+  width: 500px;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .dashboard-card-product img {
