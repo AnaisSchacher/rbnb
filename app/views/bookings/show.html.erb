@@ -1,7 +1,9 @@
 <h1>Votre réservation avec <%= @booking.profile.user.name %></h1>
 
 <ul>
-	<li><%= "Nom: #{@booking.profile.user.name}" %></li>
+	<li><%= "Titre de l'annonce: #{@booking.profile.title}" %></li>
+	<li><%= cl_image_tag @profile.photo.key if @profile.photo.attached? %></li>
+	<li><%= "Du #{@booking.start_time.strftime("%m/%d/%Y")} au #{@booking.end_time.strftime("%m/%d/%Y")}" %></li>
 	<li><%= "Durée: #{@booking.duration} jour(s)" %></li>
 	<li><%= "Prix: #{@booking.price}€" %></li>
 	<li><%= "Description: #{@booking.profile.description}" %></li>
