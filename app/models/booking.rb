@@ -12,3 +12,4 @@ class Booking < ApplicationRecord
     return (d/t).to_i
   end
 end
+
