@@ -1,53 +1,42 @@
-<h1><%= "Bienvenu(e) sur votre tableau de bord #{@user.username.capitalize}!" %></h1>
-<br>
+<div class="dashboard-container">
 
-<h2>Vos réservations en cours :</h2> 
-<br>
-  <% @bookings.each do |booking| %>
-    <% if booking.end_time > Date.today && booking.start_time < Date.today %> 
-      <ul class="">
-        <li class="">
-          <%= "Titre de l'annonce: #{booking.profile.title}" %>
-          <%= "Durée: #{booking.duration} jour(s)" %>
-          <%= "Prix: #{booking.price}€" %>
-          <%= link_to "Détails de votre commande", booking_path(booking) %>
-          <%= link_to "Annuler", booking_path(booking), method: :delete, data: { confirm: "Êtes-vous sûr(e) d'annuler votre commande ?" } %>
-        </li>
-      </ul>
+  <h1><%= "Bienvenu(e) sur votre tableau de bord #{@user.username.capitalize}!" %></h1>
+
+  <h2>Vous avez <%= @bookings.length %> réservation(s) à venir</h2>
+    <% @bookings.each do |booking| %>
+      <% if booking.end_time > Date.today %>
+
+        <%= link_to booking_path(booking) do %>
+             <div class="dashboard-card-product">
+                <%= cl_image_tag booking.profile.photo.key if booking.profile.photo.attached? %>
+                <div class="dashboard-card-product-infos">
+                <h2><%= booking.profile.title %></h2>
+                <p><%= booking.duration %> jours - <%= booking.price %>€</p>
+                <%= link_to booking_path(booking), method: :delete, data: { confirm: "Êtes-vous sûr(e) d'annuler votre réservation ?" } do %>
+                  <i class="fas fa-ban"></i>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+      <% end %>
     <% end %>
-  <% end %>
 
-
-<h2>Vos réservations à venir :</h2> 
-<br>
-  <% @bookings.each do |booking| %>
-    <% if booking.end_time > Date.today %> 
-      <ul class="">
-        <li class="">
-          <%= "Titre de l'annonce: #{booking.profile.title}" %>
-          <%= "Durée: #{booking.duration} jour(s)" %>
-          <%= "Prix: #{booking.price}€" %>
-          <%= link_to "Détails de votre commande", booking_path(booking) %>
-          <%= link_to "Annuler", booking_path(booking), method: :delete, data: { confirm: "Êtes-vous sûr(e) d'annuler votre commande ?" } %>
-        </li>
-      </ul>
+  <h2>Vos réservations passées :</h2>
+  <br>
+    <% @bookings.each do |booking| %>
+    <% if booking.end_time < Date.today %>
+        <ul class="">
+          <li class="">
+          	<%= "Titre de l'annonce: #{booking.profile.title}" %>
+          	<%= "Durée: #{booking.duration} jour(s)" %>
+          	<%= "Prix: #{booking.price}€" %>
+            <%= link_to "Détails de votre commande", booking_path(booking) %>
+            <%= link_to "Réserver de nouveau", new_profile_booking_path(booking.profile) %>
+          </li>
+        </ul>
+      <% end %>
     <% end %>
-  <% end %>
 
-<h2>Vos réservations passées :</h2> 
-<br>
-  <% @bookings.each do |booking| %>
-  <% if booking.end_time < Date.today %> 
-      <ul class="">
-        <li class="">
-        	<%= "Titre de l'annonce: #{booking.profile.title}" %>
-        	<%= "Durée: #{booking.duration} jour(s)" %>
-        	<%= "Prix: #{booking.price}€" %>
-          <%= link_to "Détails de votre commande", booking_path(booking) %>
-          <%= link_to "Réserver de nouveau", new_profile_booking_path(booking.profile) %>
-        </li>
-      </ul>
-    <% end %>
-  <% end %>
+  <%= link_to "Retour aux annonces", profiles_path  %>
 
-<%= link_to "Retour aux annonces", profiles_path  %>
+</div>
