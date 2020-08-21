@@ -11,7 +11,16 @@
                 <div class="picture">
                   <%= cl_image_tag(profile.photo.key, height: 300, width: 400, crop: :fill) if profile.photo.attached? %>    </div>
                 <div class="annonce">
-                  <p><%= profile.address.capitalize %></p>
+                  <div class="card-head">
+                    <p><%= profile.address.capitalize %></p>
+                    <div class="card__title">
+                      <% if profile.available? %>
+                        <%= image_tag("icon-disponible", class:"img-available", :transformation=>[{height: 70, width: 70, crop: :fill}]) %>
+                      <% else %>
+                        <%= image_tag("icon-disponible", class:"img-available img-unavailable", :transformation=>[{height: 70, width: 70, crop: :fill}]) %>
+                      <% end %>
+                    </div>
+                  </div>
                   <div class="infos">
                   <h2><%= profile.title %></h2>
                     <p><%= profile.category %></p>

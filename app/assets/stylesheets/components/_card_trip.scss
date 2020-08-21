@@ -21,6 +21,10 @@
   width: 400px;
 }
 
+.card-head {
+  display: flex;
+}
+
 
 
 .picture {
@@ -59,3 +63,14 @@ a:hover {
 }
 
 
+.card__title {
+  margin-left: 200px;
+
+    .img-available {
+      width: 30px;
+      height: 30px;
+    }
+    .img-unavailable {
+      opacity: 0.2;
+    }
+}
