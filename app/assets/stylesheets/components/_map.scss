@@ -1,6 +1,4 @@
 #map {
-  position: sticky;
-  top: 0;
   min-height: 100%;
   object-fit:cover;
 }
@@ -16,4 +14,6 @@
 
 .map-part {
   height: 100vh;
+  position: sticky;
+  top: 0;
 }

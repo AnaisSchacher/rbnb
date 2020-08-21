@@ -2,7 +2,7 @@
   <h1>Modifier l'annonce de <%= current_user.username %> </h1>
 
   <div class="form-group">
-    <%= simple_form_for [@user, @profile] do |f|%>
+    <%= simple_form_for ([@user, @profile]) do |f|%>
       <%= f.input :title, label: "Titre", class: "form-control", placeholder:"Handicapé avec carte de stationnement et fauteuil", maxlength:"40" %>
       <%= f.input :address, label: "Adresse", class: "form-control" %>
       <%#= f.collection_check_boxes :options, [[true, 'Yes'], [false, 'No']], :first, :last %>
