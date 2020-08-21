@@ -3,7 +3,7 @@
 
   <div class="form-group">
     <%= simple_form_for [@user, @profile] do |f|%>
-      <%= f.input :title, label: "Titre", class: "form-control", placeholder:"Handicapé avec carte de stationnement et fauteuil" %>
+      <%= f.input :title, label: "Titre", class: "form-control", placeholder:"Handicapé avec carte de stationnement et fauteuil", maxlength:"40" %>
       <%= f.input :address, label: "Adresse", class: "form-control" %>
       <%#= f.collection_check_boxes :options, [[true, 'Yes'], [false, 'No']], :first, :last %>
       <%= f.input :category, as: :radio_buttons, collection: CAT, class: "form-control mr-1" %>
