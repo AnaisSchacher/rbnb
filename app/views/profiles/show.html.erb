@@ -1,31 +1,5 @@
-<div class="container d-flex justify-content-center mt-10">
-  <div class="rowc col-6">
-    <div class="card" style="width: 100%;">
-          <%= cl_image_tag @profile.photo.key if @profile.photo.attached? %>
-      <div class="card-body">
-           <h3><%= @profile.title %></h3>
-          <p>Annonce publiée par <%= @profile.user.name %></p>
-        <h4>Ma description : </h4>
-        <p class="card-text"><%= @profile.description %></p>
-      </div>
 
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Adresse : <%= @profile.address %></li>
-        <li class="list-group-item">Handicap : <%= @profile.category %></li>
-        <li class="list-group-item">Prix à l'heure : <%= @profile.price %></li>
-      </ul>
-      <div class="card-body">
-        <%= link_to "Retour", profiles_path  %>
-        <%= link_to "Modifier", edit_profile_path(@profile) %>
-        <%= link_to "Supprimer", profile_path(@profile), method: :delete, data: { confirm: "Êtes vous sûrs de vouloir supprimer votre annonce ?"} %>
-        <button type="button"><%= link_to "Réserver", new_profile_booking_path(@profile) %></button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="container">
+<div class="show-container">
   <div class="row">
     <div class="col-12 col-lg-8">
       <div class="card-show">
@@ -37,13 +11,27 @@
             <h1><%= @profile.title %></h1>
             <p><%= @profile.category %></p>
           </div>
+          <div class="links-show">
+              <%= link_to profiles_path do %>
+                <i class="fas fa-backward"></i>
+              <% end %>
+              <%= link_to edit_profile_path(@profile) do %>
+                <i class="fas fa-user-edit"></i>
+              <% end %>
+              <%= link_to profile_path(@profile), method: :delete, data: { confirm: "Êtes vous sûrs de vouloir supprimer votre annonce ?"} do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
+          </div>
         </div>
           <div class="bas">
             <div class= "more">
-              <p>13 rue de xxxx </p>
-              <h4>40E</h4>
+              <p><%= @profile.address %></p>
+              <h4><%= @profile.price %>€</h4>
             </div>
-            <p>Dispo pour mariages et enterrements</p>
+            <p><%= @profile.description %></p>
+          </div>
+            </div>
+
           </div>
         </div>
         </div>
@@ -51,8 +39,18 @@
 
 
     </div>
-    <div class="col-12 col-lg-4">
-    <p>Test</p>
-    </div>
-  </div>
+      <div class="col-12 col-lg-4">
+        <div class="booking-container">
+            <h3>Réserver la prestation de <%= @profile.user.name %> </h3>
+          <div class="booking-form">
+            <%= simple_form_for [@profile, @booking] do |f| %>
+            <%= f.input :start_time, label: "Date de début", as: :date, html5: true, class:"start-time" %>
+            <%= f.input :end_time, label: "Date de fin", as: :date, html5: true, class:"end-time" %>
+            <%= f.button :submit, "Réserver", class: "btn btn-primary", class:"reserve" %>
+            <% end %>
+          </div>
+        </div>
+
+      </div>
+
 </div>

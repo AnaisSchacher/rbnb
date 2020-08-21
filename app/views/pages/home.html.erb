@@ -8,14 +8,16 @@
         <%= image_tag "logo.png", alt: "fastpass", class:"logo" %>
         <h1>Adopte un non valide !</h1>
 
-        <div class="home-form">
+        <div class="form">
           <%= form_tag profiles_path, method: :get do %>
+          <div class="research">
             <%= text_field_tag :query,
               params[:query],
               class: "form-control",
               placeholder: "Choisissez une ville"
             %>
             <%= submit_tag "Go !", class: "btn btn-primary go" %>
+          </div>
           <% end %>
         </div>
 

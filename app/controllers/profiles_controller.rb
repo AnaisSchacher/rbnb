@@ -32,6 +32,7 @@ class ProfilesController < ApplicationController
 
   def show
     @profile = Profile.find(params[:id])
+    @booking = Booking.new
     authorize @profile
   end
 
