@@ -5,28 +5,30 @@
 
   		<div class="col-12 col-lg-6">
         <% @profiles.each do |profile| %>
-         <%= link_to profile_path(profile), style:"text-decoration:none;" do %>
+         <%= link_to profile_path(profile) do %>
             <div class="card-list">
               <div class="card-product">
                 <div class="picture">
                   <%= cl_image_tag(profile.user.photo.key) if profile.user.photo.attached? %>    </div>
                 <div class="annonce">
-                  <p><%= profile.address %></p>
+                  <p><%= profile.address.capitalize %></p>
                   <div class="infos">
                   <h2><%= profile.user.name %></h2>
                     <p><%= profile.category %></p>
                     <p><%= profile.description %></p>
                   </div>
-                  <div class="book">
-                  <button type="button", class="btn btn-outine-secondary><%= link_to "Réserver", new_profile_booking_path(profile) %></button>
-                    <h3><%= profile.price; %>€</h3>
+                  <% end %>
+
+                  <div class="book-reservation">
+
+                    <%= link_to "Réserver", new_profile_booking_path(profile), class:"btn btn-outline-secondary" %>
+                    <h3><%= profile.price; %>€<span class="petit">/jour</span></h3>
 
                   </div>
 
                 </div>
               </div>
             </div>
-          <% end %>
         <% end %>
 
  </div>
@@ -42,7 +44,6 @@
   	</div>
   </div>
 </div>
-
 
 <!-- do not change the markup -->
 
