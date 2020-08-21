@@ -2,6 +2,7 @@
 class Profile < ApplicationRecord
   belongs_to :user
   has_many :bookings
+  has_one_attached :photo
 
   validates :category, inclusion: { in: CAT }
   validates :category, :price, presence: true

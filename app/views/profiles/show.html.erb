@@ -1,9 +1,10 @@
 <div class="container d-flex justify-content-center mt-10">
   <div class="rowc col-6">
     <div class="card" style="width: 100%;">
-      <%= cl_image_tag(@profile.user.photo.key, :transformation=>[{height: 400, width: 500, crop: :fill}]) if @profile.user.photo.attached? %>
+          <%= cl_image_tag @profile.photo.key if @profile.photo.attached? %>
       <div class="card-body">
-        <h3>Profile de : <strong><%= @profile.user.username %></strong></h3>
+           <h3><%= @profile.title %></h3>
+          <p>Annonce publiée par <%= @profile.user.name %></p>
         <h4>Ma description : </h4>
         <p class="card-text"><%= @profile.description %></p>
       </div>
@@ -15,7 +16,8 @@
       </ul>
       <div class="card-body">
         <%= link_to "Retour", profiles_path  %>
-        <%= link_to "Modifier Profile", edit_profile_path(@profile) %>
+        <%= link_to "Modifier", edit_profile_path(@profile) %>
+        <%= link_to "Supprimer", profile_path(@profile), method: :delete, data: { confirm: "Êtes vous sûrs de vouloir supprimer votre annonce ?"} %>
         <button type="button"><%= link_to "Réserver", new_profile_booking_path(@profile) %></button>
       </div>
     </div>
